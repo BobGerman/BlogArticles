@@ -5,6 +5,6 @@ This repo is where I develop new blog articles. It's public so I can invite peop
 Please visit my blog!
 
 * Articles from 2015-present are at my current blog: https://bob1german.com (I always cross-post here when I write for other blogs)
-* Articles from 2006-2015 are at my old MSDN blog: https://blogs.msdn.microsoft.com/bobgerman/. This blog platform is being retired, so I will no longer post or approve comments on this platform.
+* Articles from 2006-2015 are at my old MSDN blog: https://blogs.msdn.microsoft.com/bobgerman/?WT.mc_id=m365-0000-rogerman. This blog platform is being retired, so I will no longer post or approve comments on this platform.
 
 Thanks!
