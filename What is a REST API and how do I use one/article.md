@@ -16,6 +16,12 @@ API stands for "Application Programming Interface"; REST is just the most popula
 
  Your app can take advantage of a plethora of available APIs that provide rich features without having to reinvent them: just call the API and it does all the heavy lifting.
 
- Most major software packages these 
+ Most major software packages these days offer an API. Want to build your app on top of [Spotify](https://developer.spotify.com/documentation/web-api/)? [YouTube](https://developers.google.com/youtube/v3/)? [Microsoft 365](https://docs.microsoft.com/en-us/graph/overview)? If "there's an app for that" there's probably also an API for that too! Here are some popular APIs you can use:
+
+* [50 Most Popular APIs](https://rapidapi.com/blog/most-popular-api/)
+* [Github's list of public APIs](https://github.com/public-apis/public-apis)
+* [APIs for Github itself](https://docs.github.com/en/rest)
+* [Microsoft 365 API (aka "Microsoft Graph")](https://docs.microsoft.com/en-us/graph/overview)
+* [Bing Maps]()
  
  
