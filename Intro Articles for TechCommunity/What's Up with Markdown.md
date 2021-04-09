@@ -1,6 +1,6 @@
 # What's Up with Markdown?
 
-Perhaps you've noticed that more and more web sites and apps are using something called Markdown. Markdown is a simple way to format text without special software like a word processor, and it's very useful in Microsoft 365. 
+Perhaps you've noticed a technology called Markdown that's been showing up in a lot of web sites and apps lately. Markdown is a simple way to format text using ordinary punctuation marks, and it's very useful in Microsoft 365.
 
 For example, [Microsoft Teams supports markdown formatting](https://support.microsoft.com/en-us/office/use-markdown-formatting-in-teams-4d10bd65-55e2-4b2d-a1f3-2bebdcd2c772)  in chat messages and SharePoint has a [Markdown web part](https://support.microsoft.com/en-us/office/use-the-markdown-web-part-6d73c06d-2877-4bc9-988b-f2896016c50b). [Adaptive Cards support Markdown](https://docs.microsoft.com/en-us/adaptive-cards/authoring-cards/text-features) as well, as do [Power Automate approvals](https://docs.microsoft.com/en-us/power-automate/approvals-markdown-support). For the bot builders among us, [Bot Composer language generation](https://docs.microsoft.com/en-us/composer/concept-language-generation) and [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/reference-markdown-format) both support markdown as well. And what's at the top level of nearly every Github repo? You guessed it, a markdown file called README.md.
 
