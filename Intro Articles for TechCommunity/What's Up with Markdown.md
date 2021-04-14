@@ -34,9 +34,16 @@ Alpha | Beta | Gamma
 ------|------|------
   1   |   2  |  3
 
-Markdown was designed to be intuitive. It turns the formatting clues people type naturally into rich text that's  formatted on the screen. So you can type something in `_italics_` on the screen and it actually appears _in italics._
+Markdown was designed to be intuitive. Where possible, it uses the formatting clues people type naturally. So you can type something in `_italics_` on the screen and it actually appears _in italics._
 
 In all cases you're starting with plain text - the stuff that comes out of your keyboard and is edited with Notepad or Visual Studio Code - into something richer. (Spoiler alert: it's HTML.)
+
+## Too many flavors
+
+Nobody ever walked into an ice cream shop and complained about too many flavors! But in the case of technology, it can be a challenge. Markdown isn't a formal standard, so unsurprisingly a lot of variations or "flavors" have emerged. This article will focus on the most common features that are likely to work everywhere, but you may want to consult the documentation for each application to get the complete picture.
+
+For example, the SharePoint Markdown Web Part uses the ["Marked" syntax](https://marked.js.org/); if you're creating a README.md file for use in Github, you'll want to use [Github Flavored Markdown (GFM)](https://github.github.com/gfm/).
+
 
 ## It's retro
 
