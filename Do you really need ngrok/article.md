@@ -1,6 +1,6 @@
 # Do I really need ngrok to build a Microsoft Teams application?
 
-
+![Picture of a road tunnel with a question mark on it](./ngrok-signpost.png)
 
 If you've started down the path of developing applications for Microsoft Teams, you may have seen a tool called [ngrok](https://www.ngrok.com) as a prerequisite in various tutorials and lab exercises. This is fine for many or most developers, and I count myself as a big fan of the tool! It gives some people heartburn, however, for a couple reasons:
 
