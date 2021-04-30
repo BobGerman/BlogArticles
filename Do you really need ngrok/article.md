@@ -1,5 +1,7 @@
 # Do I really need ngrok to build a Microsoft Teams application?
 
+
+
 If you've started down the path of developing applications for Microsoft Teams, you may have seen a tool called [ngrok](https://www.ngrok.com) as a prerequisite in various tutorials and lab exercises. This is fine for many or most developers, and I count myself as a big fan of the tool! It gives some people heartburn, however, for a couple reasons:
 
 * ngrok creates a tunnel from the public Internet to your local computer, which may be a security concern. A number of partners and customers I've worked with indicate that ngrok and similar tools have been prohibited in their organization for this reason.
