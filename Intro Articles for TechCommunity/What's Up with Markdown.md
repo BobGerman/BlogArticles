@@ -38,6 +38,11 @@ Markdown was designed to be intuitive. Where possible, it uses the formatting cl
 
 In all cases you're starting with plain text - the stuff that comes out of your keyboard and is edited with Notepad or Visual Studio Code - into something richer. (Spoiler alert: it's HTML.)
 
+## In-Line Markdown
+
+## Block Elements in Markdown
+
+
 ## Too many flavors
 
 Nobody ever walked into an ice cream shop and complained about too many flavors! But in the case of technology, it can be a challenge. Markdown isn't a formal standard, so unsurprisingly a lot of variations or "flavors" have emerged. This article will focus on the most common features that are likely to work everywhere, but you may want to consult the documentation for each application to get the complete picture.
