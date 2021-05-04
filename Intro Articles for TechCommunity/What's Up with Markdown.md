@@ -56,39 +56,36 @@ Each of the following sections shows an example of some simple Markdown, followe
 ##### Markdown:
 
 ~~~markdown
-You can surround text with *single asterisks* or _single underscores_ to emphasize it a little bit; this usually formatted using italics.
+You can surround text with *single asterisks* or _single underscores_ to emphasize it a little bit;
+this usually formatted using italics.
 
-You can surround text with **double asterisks** or __double underscores__ to emphasize it more strongly; this is usually formatted using bold text.
+You can surround text with **double asterisks** or __double underscores__ to emphasize it more strongly;
+this is usually formatted using bold text.
 ~~~
 
 ##### Output:
 
-You can surround text with *single asterisks* pr _single underscores_ to emphasize it a little bit; this usually formatted using italics.
+You can surround text with *single asterisks* or _single underscores_ to emphasize it a little bit;
+this usually formatted using italics.
 
-You can surround text with **double asterisks** or __double underscores__ to emphasize it more strongly; this is usually formatted using bold text.
+You can surround text with **double asterisks** or __double underscores__ to emphasize it more strongly;
+this is usually formatted using bold text.
 
 ### Headings
 
+You can make headings using by putting several = (for a level 1 heading) or - signs (for a level 2 heading)
+in the line below your heading text. 
+
 ##### Markdown:
 ~~~markdown
-You can make headings using by putting several = (for a level 1 heading) or - signs (for a level 2 heading) in the line below. 
-
 My Heading
 ---
-
-You can also make headings with one or more hash marks in column 1. The number of hash marks controls the level of the heading.
-
-# First level heading
-## Second level heading
-### Third level heading
-#### etc.
 ~~~
 
 ##### Result:
-You can make headings using by putting several = (for a level 1 heading) or - signs (for a level 2 heading) in the line below.
-
 My Heading
 ---
+
 
 You can also make headings with one or more hash marks in column 1. The number of hash marks controls the level of the heading.
 
@@ -106,6 +103,8 @@ You can also make headings with one or more hash marks in column 1. The number o
 ## Second level heading
 ### Third level heading
 #### etc.
+
+
 
 ### Hyperlinks
 
@@ -215,8 +214,7 @@ Just put a asterisk or dash in front of a line that should be bulleted.
 8. This is handy if you move items around
     1. Don't forget you can indent to get sub-items
         1. Or sub-sub-items
-    
-1. Skip 2 lines to make a new list and start the numbering from the beginning.
+1. Another item
 ~~~
 
 ##### Result:
@@ -225,8 +223,8 @@ Just put a asterisk or dash in front of a line that should be bulleted.
 8. This is handy if you move items around
     1. Don't forget you can indent to get sub-items
         1. Or sub-sub-items
+1. Another item
     
-1. Skip 2 lines to make a new list and start the numbering from the beginning.
 
 ### Code samples
 
