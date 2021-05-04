@@ -4,7 +4,7 @@
 
 Perhaps you've noticed a technology called Markdown that's been showing up in a lot of web sites and apps lately. This article will explain Markdown and help you get started reading and writing it.
 
-Markdown is a simple way to format text using ordinary punctuation marks, and it's very useful in Microsoft 365. For example, [Microsoft Teams supports markdown formatting](https://support.microsoft.com/en-us/office/use-markdown-formatting-in-teams-4d10bd65-55e2-4b2d-a1f3-2bebdcd2c772)  in chat messages and SharePoint has a [Markdown web part](https://support.microsoft.com/en-us/office/use-the-markdown-web-part-6d73c06d-2877-4bc9-988b-f2896016c50b). [Adaptive Cards support Markdown](https://docs.microsoft.com/en-us/adaptive-cards/authoring-cards/text-features) as well, as do [Power Automate approvals](https://docs.microsoft.com/en-us/power-automate/approvals-markdown-support). For the bot builders among us, [Bot Composer language generation](https://docs.microsoft.com/en-us/composer/concept-language-generation) and [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/reference-markdown-format) both support markdown as well. And what's at the top level of nearly every Github repo? You guessed it, a markdown file called README.md.
+Markdown is a simple way to format text using ordinary punctuation marks, and it's very useful in Microsoft 365. For example, [Microsoft Teams supports markdown formatting](https://support.microsoft.com/en-us/office/use-markdown-formatting-in-teams-4d10bd65-55e2-4b2d-a1f3-2bebdcd2c772?WT.mc_id=m365-27330-rogerman)  in chat messages and SharePoint has a [Markdown web part](https://support.microsoft.com/en-us/office/use-the-markdown-web-part-6d73c06d-2877-4bc9-988b-f2896016c50b). [Adaptive Cards support Markdown](https://docs.microsoft.com/en-us/adaptive-cards/authoring-cards/text-features) as well, as do [Power Automate approvals](https://docs.microsoft.com/en-us/power-automate/approvals-markdown-support?WT.mc_id=m365-27330-rogerman). For the bot builders among us, [Bot Composer language generation](https://docs.microsoft.com/en-us/composer/concept-language-generation?WT.mc_id=m365-27330-rogerman) and [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/reference-markdown-format?WT.mc_id=m365-27330-rogerman) both support markdown as well. And what's at the top level of nearly every Github repo? You guessed it, a markdown file called README.md.
 
 
 
@@ -283,7 +283,7 @@ Many Markdown implementations allow you to insert HTML directly into the middle 
 
 If you'd like to play with Markdown right now, you might like to try the [Markdown Previewer](https://mdpreviewer.github.io/) where you can type and preview Markdown using any web browser.
 
-For more serious editing, Visual Studio Code does a great job, and has a built-in preview facility. Check the [VS Code Markdown documentation](https://code.visualstudio.com/Docs/languages/markdown) for details.
+For more serious editing, Visual Studio Code does a great job, and has a built-in preview facility. Check the [VS Code Markdown documentation](https://code.visualstudio.com/Docs/languages/markdown?WT.mc_id=m365-27330-rogerman) for details.
 
 There's a whole ecosystem of tools around Markdown including converters for Microsoft Word and stand-alone editing apps; these are really too numerous to list but are easy to find by [searching the web](https://www.bing.com/search?q=markdown+tool).
 
