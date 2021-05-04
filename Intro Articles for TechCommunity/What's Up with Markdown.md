@@ -15,12 +15,14 @@ Imagine you're texting someone and all you have to work with is letters, numbers
 Now imagine you're replying to an email and want to quote what someone said earlier in the thread. Many people use a little greater-than sign like this:
 
 ~~~markdown
-> Somebody said this
+Parker said,
+> Sharing is caring
 ~~~
 
 Guess what, that's Markdown too! When it's displayed, it looks like this:
 
-> Somebody said this
+Parker said,
+> Sharing is caring
 
 Did you ever make a little table with just text characters, like this?
 
