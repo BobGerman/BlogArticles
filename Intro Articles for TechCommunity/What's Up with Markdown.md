@@ -38,7 +38,7 @@ Alpha | Beta | Gamma
 ------|------|------
   1   |   2  |  3
 
-Markdown was designed to be intuitive. Where possible, it uses the formatting clues people type naturally. So you can type something in `_italics_` on the screen and it actually appears _in italics._
+Markdown was designed to be intuitive. Where possible, it uses the formatting clues people type naturally. So you can type something `_in italics_` on the screen and it actually appears _in italics._
 
 In all cases you're starting with plain text - the stuff that comes out of your keyboard and is edited with Notepad or Visual Studio Code - into something richer. (Spoiler alert: it's HTML.)
 
@@ -47,13 +47,23 @@ In all cases you're starting with plain text - the stuff that comes out of your 
 
 ## Commonly used Markdown
 
-Markdown isn't a formal standard, so unsurprisingly a lot of variations have emerged. It all started at [Daring Fireball](https://daringfireball.net/); most implementations are faithful to the original but many have added their own features. For example, the SharePoint Markdown Web Part uses the ["Marked" syntax](https://marked.js.org/); if you're creating a README.md file for use in Github, you'll want to use [Github Flavored Markdown (GFM)](https://github.github.com/gfm/).
+Markdown isn't a formal standard, and a lot of variations have emerged. It all started at [Daring Fireball](https://daringfireball.net/); most implementations are faithful to the original but many have added their own features. For example, the SharePoint Markdown Web Part uses the ["Marked" syntax](https://marked.js.org/); if you're creating a README.md file for use in Github, you'll want to use [Github Flavored Markdown (GFM)](https://github.github.com/gfm/).
 
 This article will stick to the most commonly used features that are likely to be widely supported. Each section will show an example of some markdown and then the finished rendering (which, again, may vary depending on what application you're using).
 
 Each of the following sections shows an example of some simple Markdown, followed by the formatted result.
 
-### Emphasizing Text
+1. [Emphasizing Text](#)
+1. [Headings](#)
+1. [Hyperlinks](#)
+1. [Images](#)
+1. [Block Quotes](#)
+1. [Bullet Lists](#)
+1. [Numbered Lists](#)
+1. [Code snippets](#)
+1. [Tables](#)
+
+### 1. Emphasizing Text
 
 ##### Markdown:
 
@@ -73,7 +83,7 @@ this usually formatted using italics.
 You can surround text with **double asterisks** or __double underscores__ to emphasize it more strongly;
 this is usually formatted using bold text.
 
-### Headings
+### 2. Headings
 
 You can make headings using by putting several = (for a level 1 heading) or - signs (for a level 2 heading)
 in the line below your heading text. 
@@ -108,7 +118,7 @@ You can also make headings with one or more hash marks in column 1. The number o
 
 
 
-### Hyperlinks
+### 3. Hyperlinks
 
 ##### Markdown:
 ~~~markdown
@@ -124,7 +134,7 @@ immediately followed by the URL in parenthesis (with no space in
 between!) For example:
 [Microsoft](https://www.microsoft.com).
 
-### Images
+### 4. Images
 
 Images use almost the same syntax as hyperlinks except they begin with an exclamation point. In this case the "alt" text is in square brackets and the image URL is in parenthesis, with no spaces in between.
 
@@ -166,7 +176,7 @@ single line breaks.
 
 Two line breaks start a new paragraph.
 
-### Block quotes
+### 5. Block quotes
 
 ##### Markdown:
 ~~~markdown
@@ -182,7 +192,7 @@ Use a greater than sign in column 1 to make block quotes like this:
 > Line 1
 > Line 2
 
-### Bullet lists
+### 6. Bullet lists
 
 ##### Markdown:
 ~~~markdown
@@ -207,7 +217,7 @@ Just put a asterisk or dash in front of a line that should be bulleted.
 - Here is an item with a dash
     - Changing characters makes a new list.
 
-### Numbered lists
+### 7. Numbered lists
 
 ##### Markdown:
 ~~~markdown
@@ -227,8 +237,7 @@ Just put a asterisk or dash in front of a line that should be bulleted.
         1. Or sub-sub-items
 1. Another item
     
-
-### Code samples
+### 8. Code samples
 
 Many markdown implementations know how to format code by language. (This article was written in Markdown and made extensive use of this feature using "markdown" as the language!) For example to show some HTML:
 
@@ -244,7 +253,7 @@ Many markdown implementations know how to format code by language. (This article
 <button type="button">Do not push this button</button>
 ~~~
 
-### Tables
+### 9. Tables
 
 Tables are not universally supported but they're so useful they had to be part of this article. Here is a simple table. Separate columns with pipe characters, and don't worry about making things line up; Markdown will handle that part for you.
 
