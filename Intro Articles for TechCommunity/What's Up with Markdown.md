@@ -2,15 +2,15 @@
 
 ![Markdown logo and a question mark](./whats-up-with-markdown.png)
 
-Perhaps you've noticed a technology called Markdown that's been showing up in a lot of web sites and apps lately. Markdown is a simple way to format text using ordinary punctuation marks, and it's very useful in Microsoft 365.
+Perhaps you've noticed a technology called Markdown that's been showing up in a lot of web sites and apps lately. This article will explain Markdown and help you get started reading and writing it.
 
-For example, [Microsoft Teams supports markdown formatting](https://support.microsoft.com/en-us/office/use-markdown-formatting-in-teams-4d10bd65-55e2-4b2d-a1f3-2bebdcd2c772)  in chat messages and SharePoint has a [Markdown web part](https://support.microsoft.com/en-us/office/use-the-markdown-web-part-6d73c06d-2877-4bc9-988b-f2896016c50b). [Adaptive Cards support Markdown](https://docs.microsoft.com/en-us/adaptive-cards/authoring-cards/text-features) as well, as do [Power Automate approvals](https://docs.microsoft.com/en-us/power-automate/approvals-markdown-support). For the bot builders among us, [Bot Composer language generation](https://docs.microsoft.com/en-us/composer/concept-language-generation) and [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/reference-markdown-format) both support markdown as well. And what's at the top level of nearly every Github repo? You guessed it, a markdown file called README.md.
+Markdown is a simple way to format text using ordinary punctuation marks, and it's very useful in Microsoft 365. For example, [Microsoft Teams supports markdown formatting](https://support.microsoft.com/en-us/office/use-markdown-formatting-in-teams-4d10bd65-55e2-4b2d-a1f3-2bebdcd2c772)  in chat messages and SharePoint has a [Markdown web part](https://support.microsoft.com/en-us/office/use-the-markdown-web-part-6d73c06d-2877-4bc9-988b-f2896016c50b). [Adaptive Cards support Markdown](https://docs.microsoft.com/en-us/adaptive-cards/authoring-cards/text-features) as well, as do [Power Automate approvals](https://docs.microsoft.com/en-us/power-automate/approvals-markdown-support). For the bot builders among us, [Bot Composer language generation](https://docs.microsoft.com/en-us/composer/concept-language-generation) and [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/reference-markdown-format) both support markdown as well. And what's at the top level of nearly every Github repo? You guessed it, a markdown file called README.md.
 
-This article will explain Markdown and help you get started reading and writing it.
+
 
 ## Designed to be intuitive
 
-Imagine you're texting someone and all you have to work with is letters, numbers, and a few punctuation marks. (OK maybe an emoji or two as well 😁 - Markdown neither helps nor blocks emojis, they're just characters). If you want to get their attention, you might use `**asterisks**`, right? If you've ever done that, then you were already using Markdown! Double asterisks make the text **bold**.
+Imagine you're texting someone and all you have to work with is letters, numbers, and a few punctuation marks. If you want to get their attention, you might use `**asterisks**`, right? If you've ever done that, then you were already using Markdown! Double asterisks make the text **bold**.
 
 Now imagine you're replying to an email and want to quote what someone said earlier in the thread. Many people use a little greater-than sign like this:
 
@@ -40,19 +40,28 @@ Markdown was designed to be intuitive. Where possible, it uses the formatting cl
 
 In all cases you're starting with plain text - the stuff that comes out of your keyboard and is edited with Notepad or Visual Studio Code - into something richer. (Spoiler alert: it's HTML.)
 
-## Details details
+> What about emojis? 😁
+> Markdown neither helps nor blocks emojis, they're just characters. If your application can handle emojis, you can certainly include them in your markdown.
+
+## Commonly used Markdown
 
 Markdown isn't a formal standard, so unsurprisingly a lot of variations have emerged. It all started at [Daring Fireball](https://daringfireball.net/); most implementations are faithful to the original but many have added their own features. For example, the SharePoint Markdown Web Part uses the ["Marked" syntax](https://marked.js.org/); if you're creating a README.md file for use in Github, you'll want to use [Github Flavored Markdown (GFM)](https://github.github.com/gfm/).
 
 This article will stick to the most commonly used features that are likely to be widely supported. Each section will show an example of some markdown and then the finished rendering (which, again, may vary depending on what application you're using).
 
+Each of the following sections shows an example of some simple Markdown, followed by the formatted result.
+
 ### Emphasizing Text
 
+##### Markdown:
+
 ~~~markdown
-You can surround text with *single asterisks* pr _single underscores_ to emphasize it a little bit; this usually formatted using italics.
+You can surround text with *single asterisks* or _single underscores_ to emphasize it a little bit; this usually formatted using italics.
 
 You can surround text with **double asterisks** or __double underscores__ to emphasize it more strongly; this is usually formatted using bold text.
 ~~~
+
+##### Output:
 
 You can surround text with *single asterisks* pr _single underscores_ to emphasize it a little bit; this usually formatted using italics.
 
@@ -60,9 +69,12 @@ You can surround text with **double asterisks** or __double underscores__ to emp
 
 ### Headings
 
+##### Markdown:
 ~~~markdown
-You can make headings using by putting several = or - signs in the line below.
---------------------------
+You can make headings using by putting several = (for a level 1 heading) or - signs (for a level 2 heading) in the line below. 
+
+My Heading
+---
 
 You can also make headings with one or more hash marks in column 1. The number of hash marks controls the level of the heading.
 
@@ -72,11 +84,24 @@ You can also make headings with one or more hash marks in column 1. The number o
 #### etc.
 ~~~
 
-You can make headings using by putting several = or - signs in the line below.
---------------------------
+##### Result:
+You can make headings using by putting several = (for a level 1 heading) or - signs (for a level 2 heading) in the line below.
+
+My Heading
+---
 
 You can also make headings with one or more hash marks in column 1. The number of hash marks controls the level of the heading.
 
+##### Markdown:
+
+~~~markdown
+# First level heading
+## Second level heading
+### Third level heading
+#### etc.
+~~~
+
+##### Result:
 # First level heading
 ## Second level heading
 ### Third level heading
@@ -84,6 +109,7 @@ You can also make headings with one or more hash marks in column 1. The number o
 
 ### Hyperlinks
 
+##### Markdown:
 ~~~markdown
 To make a hyperlink, surround the text in square brackets
 immediately followed by the URL in parenthesis (with no space in
@@ -91,6 +117,7 @@ between!) For example:
 [Microsoft](https://www.microsoft.com).
 ~~~
 
+##### Result:
 To make a hyperlink, surround the text in square brackets
 immediately followed by the URL in parenthesis (with no space in
 between!) For example:
@@ -100,22 +127,27 @@ between!) For example:
 
 Images use almost the same syntax as hyperlinks except they begin with an exclamation point. In this case the "alt" text is in square brackets and the image URL is in parenthesis, with no spaces in between.
 
+##### Markdown:
 ~~~markdown
 ![Parker the Porcupine](https://pnp.github.io/images/hero-parker-p-800.png)
 ~~~
 
+##### Result:
 ![Parker the Porcupine](https://pnp.github.io/images/hero-parker-p-800.png)
 
 In case you were wondering, you can combine this with the hyperlink like this:
 
+##### Markdown:
 ~~~markdown
 [![Parker the Porcupine](https://pnp.github.io/images/hero-parker-p-800.png)](http://pnp.github.io)
 ~~~
 
+##### Result:
 [![Parker the Porcupine](https://pnp.github.io/images/hero-parker-p-800.png)](http://pnp.github.io)
 
 ### Paragraphs and line breaks
 
+##### Markdown:
 ~~~markdown
 Markdown will
 automatically
@@ -125,6 +157,7 @@ single line breaks.
 Two line breaks start a new paragraph.
 ~~~
 
+##### Result:
 Markdown will
 automatically
 remove
@@ -132,9 +165,9 @@ single line breaks.
 
 Two line breaks start a new paragraph.
 
-
 ### Block quotes
 
+##### Markdown:
 ~~~markdown
 Use a greater than sign in column 1 to make block quotes like this:
 
@@ -142,6 +175,7 @@ Use a greater than sign in column 1 to make block quotes like this:
 > Line 2
 ~~~
 
+##### Result:
 Use a greater than sign in column 1 to make block quotes like this:
 
 > Line 1
@@ -149,6 +183,7 @@ Use a greater than sign in column 1 to make block quotes like this:
 
 ### Bullet lists
 
+##### Markdown:
 ~~~markdown
 Just put a asterisk or dash in front of a line that should be bulleted.
 
@@ -159,6 +194,8 @@ Just put a asterisk or dash in front of a line that should be bulleted.
 - Here is an item with a dash
     - Changing characters makes a new list.
 ~~~
+
+##### Result:
 
 Just put a asterisk or dash in front of a line that should be bulleted.
 
@@ -171,6 +208,7 @@ Just put a asterisk or dash in front of a line that should be bulleted.
 
 ### Numbered lists
 
+##### Markdown:
 ~~~markdown
 1. Beginning a line with a number makes it a list item.
 1. You don't need to put a specific number; Markdown will renumber for you
@@ -181,6 +219,7 @@ Just put a asterisk or dash in front of a line that should be bulleted.
 1. Skip 2 lines to make a new list and start the numbering from the beginning.
 ~~~
 
+##### Result:
 1. Beginning a line with a number makes it a list item.
 1. You don't need to put a specific number; Markdown will renumber for you
 8. This is handy if you move items around
@@ -193,24 +232,37 @@ Just put a asterisk or dash in front of a line that should be bulleted.
 
 Many markdown implementations know how to format code by language. (This article was written in Markdown and made extensive use of this feature using "markdown" as the language!) For example to show some HTML:
 
+##### Markdown:
 ~~~markdown
     ~~~html
     <button type="button">Do not push this button</button>
     ~~~
 ~~~
 
+##### Result:
 ~~~html
 <button type="button">Do not push this button</button>
 ~~~
 
 ### Tables
 
-Tables are not universally supported but they're so useful they had to be part of this article.
+Tables are not universally supported but they're so useful they had to be part of this article. Here is a simple table. Separate columns with pipe characters, and don't worry about making things line up; Markdown will handle that part for you.
 
+##### Markdown:
+
+~~~markdown
+Column 1 | Column 2 | Column 3
+---|---|---
+Value 1a | Value 2a | Value 3a
+Value 1b | Value 2b | Value 3b
+~~~
+
+##### Result:
 Column 1 | Column 2 | Column 3
 ---|---|---
 Value 1a | Value 2a |  Value 3a
 Value 1b | Value 2b | Value 3b
+
 
 ## HTML and Markdown
 
