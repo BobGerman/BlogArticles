@@ -289,9 +289,9 @@ There's a whole ecosystem of tools around Markdown including converters for Micr
 
 ## Legacy
 
-From vinyl records to 8-bit games  and static web sites, there's a trend these days to rediscover simpler technologies from the past. Markdown definitely falls into this category.
+From vinyl records to 8-bit games  and static web sites, there's a trend these days to rediscover simpler technologies from the past. 
 
-Back before "WYSIWYG" (What You See Is What You Get) word processors were cheap and pervasive, there were "runoff" utilities that were very much like Markdown. They turned text files into nicely formatted printed documents (usually Postscript). Markdown harkens back to these legacy tools, but adds HTML compatibility and an intuitive syntax.
+Markdown definitely falls into this category. Back before "WYSIWYG" (What You See Is What You Get) word processors were cheap and pervasive, there were "runoff" utilities that were very much like Markdown. They turned text files into nicely formatted printed documents (usually Postscript). Markdown harkens back to these legacy tools, but adds HTML compatibility and an intuitive syntax.
 
 ## Conclusion
 
