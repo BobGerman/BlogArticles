@@ -8,9 +8,9 @@ This article will explain what ngrok is, why it's useful, and what to do instead
 
 ## Grokking ngrok
 
-As you may already be aware, Microsoft Teams applications don't run in Teams. Tabs are implemented as web pages that can run anywhere on the Internet; Bots are web services that communicate with Teams via the Azure Bot Service. Other app features, such as task modules (dialog boxes) and messaging extensions, use the same mechanisms.
+First the shocking truth: Microsoft Teams applications don't run in Teams. OK maybe it's not shocking, but Teams applications are just regular web pages and web services that you can host anywhere on the Internet. Tabs and task modules (dialog boxes) are web pages; Bots and messaging extensions are web services. This allows developers to use their choice of web development stack, and to reuse code and skills.
 
-It's very handy to use ngrok when debugging these applications on your local computer. Here's why:
+Web developers typically host a small web server on the same computer where they edit their code to run and debug their applications. For Microsoft Teams developers in particular, ngrok is very handy in this situation. Here's why:
 
 1. ngrok provides the encryption needed for https, which is required for Teams applications. It's set up using a trusted TLS certificate so it just works immediately in any web browser.
 
