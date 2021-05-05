@@ -4,7 +4,7 @@
 
 Perhaps you've noticed a technology called Markdown that's been showing up in a lot of web sites and apps lately. This article will explain Markdown and help you get started reading and writing it.
 
-Markdown is a simple way to format text using ordinary punctuation marks, and it's very useful in Microsoft 365. For example, [Microsoft Teams supports markdown formatting](https://support.microsoft.com/en-us/office/use-markdown-formatting-in-teams-4d10bd65-55e2-4b2d-a1f3-2bebdcd2c772)  in chat messages and SharePoint has a [Markdown web part](https://support.microsoft.com/en-us/office/use-the-markdown-web-part-6d73c06d-2877-4bc9-988b-f2896016c50b). [Adaptive Cards support Markdown](https://docs.microsoft.com/en-us/adaptive-cards/authoring-cards/text-features) as well, as do [Power Automate approvals](https://docs.microsoft.com/en-us/power-automate/approvals-markdown-support). For the bot builders among us, [Bot Composer language generation](https://docs.microsoft.com/en-us/composer/concept-language-generation) and [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/reference-markdown-format) both support markdown as well. And what's at the top level of nearly every Github repo? You guessed it, a markdown file called README.md.
+Markdown is a simple way to format text using ordinary punctuation marks, and it's very useful in Microsoft 365. For example, [Microsoft Teams supports markdown formatting](https://support.microsoft.com/en-us/office/use-markdown-formatting-in-teams-4d10bd65-55e2-4b2d-a1f3-2bebdcd2c772?WT.mc_id=m365-27330-rogerman)  in chat messages and SharePoint has a [Markdown web part](https://support.microsoft.com/en-us/office/use-the-markdown-web-part-6d73c06d-2877-4bc9-988b-f2896016c50b). [Adaptive Cards support Markdown](https://docs.microsoft.com/en-us/adaptive-cards/authoring-cards/text-features) as well, as do [Power Automate approvals](https://docs.microsoft.com/en-us/power-automate/approvals-markdown-support?WT.mc_id=m365-27330-rogerman). For the bot builders among us, [Bot Composer language generation](https://docs.microsoft.com/en-us/composer/concept-language-generation?WT.mc_id=m365-27330-rogerman) and [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/reference-markdown-format?WT.mc_id=m365-27330-rogerman) both support markdown as well. And what's at the top level of nearly every Github repo? You guessed it, a markdown file called README.md.
 
 
 
@@ -15,12 +15,14 @@ Imagine you're texting someone and all you have to work with is letters, numbers
 Now imagine you're replying to an email and want to quote what someone said earlier in the thread. Many people use a little greater-than sign like this:
 
 ~~~markdown
-> Somebody said this
+Parker said,
+> Sharing is caring
 ~~~
 
 Guess what, that's Markdown too! When it's displayed, it looks like this:
 
-> Somebody said this
+Parker said,
+> Sharing is caring
 
 Did you ever make a little table with just text characters, like this?
 
@@ -36,7 +38,7 @@ Alpha | Beta | Gamma
 ------|------|------
   1   |   2  |  3
 
-Markdown was designed to be intuitive. Where possible, it uses the formatting clues people type naturally. So you can type something in `_italics_` on the screen and it actually appears _in italics._
+Markdown was designed to be intuitive. Where possible, it uses the formatting clues people type naturally. So you can type something `_in italics_` on the screen and it actually appears _in italics._
 
 In all cases you're starting with plain text - the stuff that comes out of your keyboard and is edited with Notepad or Visual Studio Code - into something richer. (Spoiler alert: it's HTML.)
 
@@ -45,50 +47,57 @@ In all cases you're starting with plain text - the stuff that comes out of your 
 
 ## Commonly used Markdown
 
-Markdown isn't a formal standard, so unsurprisingly a lot of variations have emerged. It all started at [Daring Fireball](https://daringfireball.net/); most implementations are faithful to the original but many have added their own features. For example, the SharePoint Markdown Web Part uses the ["Marked" syntax](https://marked.js.org/); if you're creating a README.md file for use in Github, you'll want to use [Github Flavored Markdown (GFM)](https://github.github.com/gfm/).
+Markdown isn't a formal standard, and a lot of variations have emerged. It all started at [Daring Fireball](https://daringfireball.net/); most implementations are faithful to the original but many have added their own features. For example, the SharePoint Markdown Web Part uses the ["Marked" syntax](https://marked.js.org/); if you're creating a README.md file for use in Github, you'll want to use [Github Flavored Markdown (GFM)](https://github.github.com/gfm/).
 
 This article will stick to the most commonly used features that are likely to be widely supported. Each section will show an example of some markdown and then the finished rendering (which, again, may vary depending on what application you're using).
 
 Each of the following sections shows an example of some simple Markdown, followed by the formatted result.
 
-### Emphasizing Text
+1. [Emphasizing Text](#)
+1. [Headings](#)
+1. [Hyperlinks](#)
+1. [Images](#)
+1. [Block Quotes](#)
+1. [Bullet Lists](#)
+1. [Numbered Lists](#)
+1. [Code snippets](#)
+1. [Tables](#)
+
+### 1. Emphasizing Text
 
 ##### Markdown:
 
 ~~~markdown
-You can surround text with *single asterisks* or _single underscores_ to emphasize it a little bit; this usually formatted using italics.
+You can surround text with *single asterisks* or _single underscores_ to emphasize it a little bit;
+this usually formatted using italics.
 
-You can surround text with **double asterisks** or __double underscores__ to emphasize it more strongly; this is usually formatted using bold text.
+You can surround text with **double asterisks** or __double underscores__ to emphasize it more strongly;
+this is usually formatted using bold text.
 ~~~
 
 ##### Output:
 
-You can surround text with *single asterisks* pr _single underscores_ to emphasize it a little bit; this usually formatted using italics.
+You can surround text with *single asterisks* or _single underscores_ to emphasize it a little bit;
+this usually formatted using italics.
 
-You can surround text with **double asterisks** or __double underscores__ to emphasize it more strongly; this is usually formatted using bold text.
+You can surround text with **double asterisks** or __double underscores__ to emphasize it more strongly;
+this is usually formatted using bold text.
 
-### Headings
+### 2. Headings
+
+You can make headings using by putting several = (for a level 1 heading) or - signs (for a level 2 heading)
+in the line below your heading text. 
 
 ##### Markdown:
 ~~~markdown
-You can make headings using by putting several = (for a level 1 heading) or - signs (for a level 2 heading) in the line below. 
-
 My Heading
 ---
-
-You can also make headings with one or more hash marks in column 1. The number of hash marks controls the level of the heading.
-
-# First level heading
-## Second level heading
-### Third level heading
-#### etc.
 ~~~
 
 ##### Result:
-You can make headings using by putting several = (for a level 1 heading) or - signs (for a level 2 heading) in the line below.
-
 My Heading
 ---
+
 
 You can also make headings with one or more hash marks in column 1. The number of hash marks controls the level of the heading.
 
@@ -107,7 +116,9 @@ You can also make headings with one or more hash marks in column 1. The number o
 ### Third level heading
 #### etc.
 
-### Hyperlinks
+
+
+### 3. Hyperlinks
 
 ##### Markdown:
 ~~~markdown
@@ -123,7 +134,7 @@ immediately followed by the URL in parenthesis (with no space in
 between!) For example:
 [Microsoft](https://www.microsoft.com).
 
-### Images
+### 4. Images
 
 Images use almost the same syntax as hyperlinks except they begin with an exclamation point. In this case the "alt" text is in square brackets and the image URL is in parenthesis, with no spaces in between.
 
@@ -165,7 +176,7 @@ single line breaks.
 
 Two line breaks start a new paragraph.
 
-### Block quotes
+### 5. Block quotes
 
 ##### Markdown:
 ~~~markdown
@@ -181,7 +192,7 @@ Use a greater than sign in column 1 to make block quotes like this:
 > Line 1
 > Line 2
 
-### Bullet lists
+### 6. Bullet lists
 
 ##### Markdown:
 ~~~markdown
@@ -206,7 +217,7 @@ Just put a asterisk or dash in front of a line that should be bulleted.
 - Here is an item with a dash
     - Changing characters makes a new list.
 
-### Numbered lists
+### 7. Numbered lists
 
 ##### Markdown:
 ~~~markdown
@@ -215,8 +226,7 @@ Just put a asterisk or dash in front of a line that should be bulleted.
 8. This is handy if you move items around
     1. Don't forget you can indent to get sub-items
         1. Or sub-sub-items
-    
-1. Skip 2 lines to make a new list and start the numbering from the beginning.
+1. Another item
 ~~~
 
 ##### Result:
@@ -225,10 +235,9 @@ Just put a asterisk or dash in front of a line that should be bulleted.
 8. This is handy if you move items around
     1. Don't forget you can indent to get sub-items
         1. Or sub-sub-items
+1. Another item
     
-1. Skip 2 lines to make a new list and start the numbering from the beginning.
-
-### Code samples
+### 8. Code samples
 
 Many markdown implementations know how to format code by language. (This article was written in Markdown and made extensive use of this feature using "markdown" as the language!) For example to show some HTML:
 
@@ -244,7 +253,7 @@ Many markdown implementations know how to format code by language. (This article
 <button type="button">Do not push this button</button>
 ~~~
 
-### Tables
+### 9. Tables
 
 Tables are not universally supported but they're so useful they had to be part of this article. Here is a simple table. Separate columns with pipe characters, and don't worry about making things line up; Markdown will handle that part for you.
 
@@ -274,15 +283,15 @@ Many Markdown implementations allow you to insert HTML directly into the middle 
 
 If you'd like to play with Markdown right now, you might like to try the [Markdown Previewer](https://mdpreviewer.github.io/) where you can type and preview Markdown using any web browser.
 
-For more serious editing, Visual Studio Code does a great job, and has a built-in preview facility. Check the [VS Code Markdown documentation](https://code.visualstudio.com/Docs/languages/markdown) for details.
+For more serious editing, Visual Studio Code does a great job, and has a built-in preview facility. Check the [VS Code Markdown documentation](https://code.visualstudio.com/Docs/languages/markdown?WT.mc_id=m365-27330-rogerman) for details.
 
 There's a whole ecosystem of tools around Markdown including converters for Microsoft Word and stand-alone editing apps; these are really too numerous to list but are easy to find by [searching the web](https://www.bing.com/search?q=markdown+tool).
 
 ## Legacy
 
-From vinyl records to 8-bit games  and static web sites, there's a trend these days to rediscover simpler technologies from the past. Markdown definitely falls into this category.
+From vinyl records to 8-bit games  and static web sites, there's a trend these days to rediscover simpler technologies from the past. 
 
-Back before "WYSIWYG" (What You See Is What You Get) word processors were cheap and pervasive, there were "runoff" utilities that were very much like Markdown. They turned text files into nicely formatted printed documents (usually Postscript). Markdown harkens back to these legacy tools, but adds HTML compatibility and an intuitive syntax.
+Markdown definitely falls into this category. Back before "WYSIWYG" (What You See Is What You Get) word processors were cheap and pervasive, there were "runoff" utilities that were very much like Markdown. They turned text files into nicely formatted printed documents (usually Postscript). Markdown harkens back to these legacy tools, but adds HTML compatibility and an intuitive syntax.
 
 ## Conclusion
 
