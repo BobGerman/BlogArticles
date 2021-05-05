@@ -2,7 +2,7 @@
 
 ![Picture of a road tunnel with a question mark on it](./ngrok-signpost.png)
 
-If you've started down the path of developing applications for Microsoft Teams, you may have seen a tool called [ngrok](https://www.ngrok.com) as a prerequisite in various tutorials and lab exercises. It's also integrated with a number of tools such as the [Microsoft Teams Toolkit](#), and the [yo teams](#) generator; even the [Bot Framework Emulator](#) has an ngrok option.
+If you've started down the path of developing applications for Microsoft Teams, you may have seen a tool called [ngrok](https://www.ngrok.com) as a prerequisite in various tutorials and lab exercises. It's also integrated with a number of tools such as the [Microsoft Teams Toolkit](#) and the [yo teams](#) generator; even the [Bot Framework Emulator](#) has an ngrok option.
 
 This article will explain what ngrok is, why it's useful, and what to do instead if you or your company are uncomfortable with using it.
 
