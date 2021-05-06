@@ -38,11 +38,11 @@ But what if, in order to test the application, it needs to get requests from the
 
 The problem is these incoming requests are normally blocked by the firewall. If you've ever opened a port on your home router to allow a gadget to receive incoming connections, this is the same situation.
 
-With ngrok running, the incoming requests go through the ngrok service and into your locally running copy of the ngrok application. This allows the developer to use their local tools just as before.
+With ngrok running, the incoming requests go through the ngrok service and into your locally running copy of the ngrok application. The ngrok application calls the local server, allowing the developer to run and debug the web server locally.
 
 ![Topology without ngrok](./ngrok-with-ngrok.png)
 
-In the case of Teams development, tabs and task modules only require local loopback connection, whereas bots and messaging extensions have to handle incoming requests from the Internet. The sections which follow examine each of these scenarios.
+In the case of Teams development, tabs and task modules only require a local loopback connection, whereas bots and messaging extensions have to handle incoming requests from the Internet. Each is explained in more detail later in this article.
 
 ## Using ngrok
 
@@ -58,9 +58,11 @@ You will then see a screen like this:
 
 ![ngrok screen shot](./ngrok-screenshot.png)
 
-The "Forwarding" lines show what's happening. Requests arriving at http://(something).ngrok.io or https://(something).ngrok.io will be forwarded to http://localhost:3978, where your local bot is running. At this point you would put the "something.ngrok.io" address into your Azure bot configuration, Teams app manifest etc. as the location, and leave the command running while you debug your application.
+The "Forwarding" lines show what's happening. Requests arriving at http://(something).ngrok.io or https://(something).ngrok.io will be forwarded to http://localhost:3978 where your bot code is running. At this point you would put the "something.ngrok.io" address into your Azure bot configuration, Teams app manifest etc. as the location, and leave the command running while you debug your application.
 
-With the free ngrok service, the value of (something) is different every time you run ngrok, and you're limited to an 8-hour session. Every time you get a new hostname, you need to update your configuration; depending on what you're doing and how many places you had to enter your hostname, this can be a chore. The paid plans allow you to reserve names that will persist, so you can just start ngrok and and you're ready to go.
+With the free ngrok service, the value of (something) is different every time you run ngrok, and you're limited to an 8-hour session. Every time you get a new hostname you need to update your configuration; depending on what you're doing and how many places you had to enter the hostname, this can be a chore. The paid plans allow you to reserve names that will persist, so you can just start ngrok and and you're ready to go.
+
+> Hint: If you're doing a tutorial using the free version of ngrok, make a note of every place you use the ngrok URL. That way you can easily remember where to update it when it changes.
 
 The example above assumes that your local server is running http on the specified port. If your local server is running https you need a different command or it won't connect:
 
@@ -68,7 +70,9 @@ The example above assumes that your local server is running http on the specifie
 ngrok http https://localhost:3978
 ~~~
 
-You might notice that the ngrok screen shows a trace of requests that went through the tunnel; in this case they're HTTP POST requests from the Azure Bot Service, and the local server returned a 200 (OK) response. 
+All the command options are detailed in the [ngrok documentation](https://ngrok.com/docs).
+
+You might notice that the ngrok screen shows a trace of requests that went through the tunnel; in this case they're HTTP POST requests from the Azure Bot Service, and the local server returned a 200 (OK) response. This is handy because you can see a 500 error from your server code by just glancing at the ngrok screen.
 
 You might also notice the "Web interface" url on the ngrok screen. It provides a full network trace of what went through the tunnel, which can be very helpful in debugging.
 
@@ -76,7 +80,7 @@ You might also notice the "Web interface" url on the ngrok screen. It provides a
 
 ## Developing Tabs and Task Modules with and without ngrok
 
-Application tabs and task modules in Teams applications are backed by ordinary web pages that are displayed in an IFrame within the Microsoft Teams user interface. Applications using the Azure Active Directory Single Sign-On (SSO) option also need to implement a web service. Accessing these via `localhost` is no problem; no tunnel is required.
+Application tabs and task modules in Teams applications are backed by ordinary web pages that are displayed in an IFrame within the Microsoft Teams user interface. Applications using the Azure Active Directory Single Sign-On (SSO) option also need to implement a web service to do a token exchange. Accessing these via `localhost` is no problem; no tunnel is required.
 
 ![Picture showing that Teams client access via ngrok is really just a loopback](./ngrok-tab.png)
 
@@ -88,27 +92,27 @@ On a NodeJS server, you can usually enable https by editing the **.env** file an
 
 But alas, just turning on the https protocol is generally not enough to satisfy this requirement; the connection must be _trusted_. Trust is established by a digital certificate; if the certificate comes from a trusted authority, is up-to-date, and matches the hostname in the URL, the little padlock in your web browser lights up and all is well. If not, you get errors that you can bypass in most web browsers, but not in Microsoft Teams.
 
-The people over at ngrok acquired their certificate from a trusted authority, and it's set to match hostname ending in `ngrok.io`; hence it just works like most any public web site. The local web server, on the other hand, will most likely have a self-signed, untrusted certificate. So the trick is to get your browser and/or Microsoft Teams to trust it.
+The people over at ngrok acquired their certificate from a trusted authority, and it's set to match hostnames ending in `ngrok.io`, so it just works without any fuss. The local web server, on the other hand, will most likely have a self-signed, untrusted certificate. So the trick is to get your browser and/or Microsoft Teams to trust it.
 
-An option that often works is to browse to the local server from a regular web browser, click the security error, and tell the browser to trust the certificate. If the browser and Microsoft Teams share the same certificate store, this will work for a while, but these default certificates generally expire after a month or so, so the process will need to be repeated.
+An option that often works is to browse to the local server from a regular web browser, click the security error, and tell the browser to trust the certificate. You can then run Teams in the same browser and bypass the issue. If the Teams client shares the same certificate store as your browser, it will also work. However these default certificates generally expire after a month or so, and the process will need to be repeated.
 
 A better option is to generate your own certificate and tell your computer to trust it. That way you can control the expiration date and reuse the certificate on multiple projects, so you only need to do the setup once. This is explained in the article, [Setting up SSL for tabs in the Teams Toolkit for Visual Studio Code](https://bob1german.com/2020/10/17/setting-up-ssl-for-tabs-in-the-teams-toolkit-for-visual-studio-code/). The instructions are for a [Create React App](https://create-react-app.dev/) application using the Teams Toolkit but they shouldn't be too difficult to adapt to other tool chains since the certificate creation and trust parts are the same regardless.
 
 ### Mobile device testing
 
-It's prudent to test Teams applications on the mobile clients (iOS and Android) to make sure everything looks good and works properly. ngrok makes this a breeze - since your local service is exposed on the public Internet, you can test using any device with an Internet connection.
+It's prudent to test Teams applications using the mobile versions of Teams (iOS and Android) to make sure everything looks good and works properly. ngrok makes this a breeze; since your local service is exposed on the public Internet, you can test using any device with an Internet connection, no special setup required.
 
-If you'd prefer not to expose your local server to the Internet, you can always connect over a local area network and leave the Internet out of it. This picture shows two phones; phone 1 is connected via ngrok and phone 2 is connected locally.
+If you'd prefer not to expose your local server to the Internet, you can always connect your phone locally using wifi and leave the Internet out of it. This picture shows two phones; phone 1 is connected via ngrok and phone 2 is connected locally.
 
 ![Phone access with and without ngrok](./ngrok-mobile-device.png)
 
-To set up local access, you'll need a server name other than `localhost` and a path on the local network from your phone to your local web server. Here are the high-level steps; the details on how to accomplish them will vary depending on your phone OS, development computer OS, and network configuration.
+To set up local access you'll need a server name other than `localhost`, and you'll need to open a path on the local network from your phone to your local web server. Here are the high-level steps; the details vary depending on your phone OS, development computer OS, and network configuration.
 
 1. Connect your mobile device via wifi to the same network as your development computer.
-1. Open an incoming port on your development computer's built-in firewall, generally port 3000 or 8080 or whatever your local web server is using.
-1. Ideally, reserve a local IP address for your development computer so it won't change over time. This can be accomplished in the DHCP section of most home routers or by using a fixed IP address.
-1. Set up a `hosts` entry (phones have them too!) or local DNS name to point to your development computer. Again, most home routers have the ability to register a local DNS name so you don't have to configure it in each device.
-1. Make sure the https certificate is for this same hostname, and install as a trusted certificate on your phone.
+1. Open an incoming port on your development computer's built-in firewall (port 3000, 3978, 8080, or whatever your local web server is using).
+1. Determine the local IP address of your development computer; ideally reserve it so it doesn't change. This can be accomplished in the DHCP section of most home routers or by using a fixed IP address.
+1. Set up a `hosts` entry (phones have them too!) or local DNS name to point to your development computer. Again, many home routers have the ability to register a local DNS name so you don't have to configure it in each device.
+1. Make sure the https certificate is for this same hostname and not just `localhost`, and install it as a trusted certificate on your phone.
 
 While this might not seem easy, it is possible! And it's a one-time setup that you can use over and over. But you can see that ngrok makes it a whole lot easier.
 
@@ -118,11 +122,14 @@ Teams bots and messaging extensions are implemented as web services, not web pag
 
 ![Bot channel service calls local web service](./ngrok-bot.png)
 
-For this reason there's currently no local debugging option in Microsoft Teams that doesn't involve opening a port on the Internet or using some sort of tunnel, ngrok or otherwise. However there are still options available!
+For this reason there's currently no local debugging option in Microsoft Teams that doesn't involve opening a port on the Internet or using some sort of tunnel, ngrok or otherwise. 
+The same is true for [outgoing webhooks](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-outgoing-webhook?WT.mc_id=m365-27674-rogerman), which are outgoing from Teams to your app).
+
+If ngrok isn't on your road map, don't worry, there are still options available!
 
 ### Option 1. Use the Bot Framework Emulator
 
-The [Bot Framework Emulator](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-emulator?WT.mc_id=m365-27674-rogerman) allows you to run bots locally without any cloud connection at all. The drawback is that it doesn't currently understand some Teams-specific features such as messaging extensions. However it does a great job running conversational bots. Adaptive cards work as well, though Invoke card actions do not.
+The [Bot Framework Emulator](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-emulator?WT.mc_id=m365-27674-rogerman) allows you to run bots locally without using the Azure Bot Service. So instead of running your bot in Teams, you run it in the emulator. The drawback is that the emulator doesn't currently understand some Teams-specific features such as messaging extensions or [other Invoke activities](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/bot-basics?WT.mc_id=m365-27674-rogerman#teams-specific-activity-handlers). However it does a great job running conversational bots! Adaptive cards work as well, though Invoke card actions do not.
 
 If your bot isn't too Teams-specific, consider using the Bot Framework Emulator for most debugging and just do final integration testing in Teams, perhaps when the bot deployed in a staging environment which is set up for handling incoming requests.
 
