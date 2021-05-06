@@ -2,13 +2,13 @@
 
 ![Picture of a road tunnel with a question mark on it](./ngrok-signpost.png)
 
-If you've started down the path of developing applications for Microsoft Teams, you may have seen a tool called [ngrok](https://www.ngrok.com) as a prerequisite in various tutorials and lab exercises. It's also integrated with a number of tools such as the [Microsoft Teams Toolkit](https://docs.microsoft.com/en-us/microsoftteams/platform/toolkit/visual-studio-code-overview?WT.mc_id=m365-27674-rogerman) and the [yo teams](https://developer.microsoft.com/en-us/microsoft-365/blogs/microsoft-teams-app-generator-yo-teams-v-2-16/?WT.mc_id=m365-27674-rogerman) generator; even the [Bot Framework Emulator](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-emulator?WT.mc_id=m365-27674-rogerman) has an ngrok option.
+If you've started down the path of developing applications for Microsoft Teams, you may have seen a tool called [ngrok](https://www.ngrok.com) as a prerequisite in various tutorials and lab exercises. It's also integrated with a number of tools such as the [Microsoft Teams Toolkit](https://docs.microsoft.com/en-us/microsoftteams/platform/toolkit/visual-studio-code-overview?WT.mc_id=m365-27674-rogerman) and the [yo teams](https://docs.microsoft.com/en-us/microsoftteams/platform/tutorials/get-started-yeoman?WT.mc_id=m365-27674-rogerman) generator; even the [Bot Framework Emulator](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-emulator?WT.mc_id=m365-27674-rogerman) has an ngrok option.
 
-This article will explain what ngrok is, why it's useful, and what to do instead if you or your company are uncomfortable with using it.
+This article will explain what ngrok is, why it's useful, and what to do instead if you or your company are uncomfortable using it.
 
 ## Grokking ngrok
 
-First the shocking truth: Microsoft Teams applications don't run in Teams. OK maybe it's not shocking, but Teams applications are made up of regular web pages and web services that you can host anywhere on the Internet. Teams tabs and task modules (dialog boxes) are just embedded web pages; bots and messaging extensions are web services. This allows developers to use their choice of web development stack, and to reuse code and skills.
+First the shocking truth: Microsoft Teams applications don't run in Teams. OK maybe it's not shocking, but it's true. Teams applications are made up of regular web pages and web services that you can host anywhere on the Internet. Teams tabs and task modules (dialog boxes) are just embedded web pages; bots and messaging extensions are web services. This allows developers to use their choice of web development stack, and to reuse code and skills.
 
 Web developers typically host a small web server on the same computer where they edit their code to run and debug their applications. For Microsoft Teams developers in particular, ngrok is very handy in this situation. Here's why:
 
@@ -16,19 +16,19 @@ Web developers typically host a small web server on the same computer where they
 
 1. ngrok provides a tunnel from the Internet to your local computer which can accept incoming requests that are normally blocked by an Internet firewall. The requests in this case are HTTP POSTs that come from the Azure Bot Service. Though tunneling is not required per se, there has to be some way for the Azure Bot Service to send requests to the application.
 
-1. ngrok provides name resolution with a DNS name ending in `ngrok.io`, so it's easy to find the public side of the Internet tunnel.
+1. ngrok provides name resolution with a DNS names ending in `ngrok.io`, so it's easy to find the public side of the Internet tunnel.
 
 1. ngrok makes mobile device testing easier since any Internet-connected phone or tablet can reach your app via the tunnel. There's no need to mess with the the phone's network connections; it just works.
 
-These conveniences have made ngrok the darling of many Microsoft Teams developers. It lets them compile, run, and debug software locally without worrying about any of this.
+These conveniences have made ngrok the darling of many Microsoft Teams developers. It lets them compile, run, and debug software locally without worrying about any of these details.
 
-The tunneling part, however, scares many IT professionals, especially if they're managing a traditional corporate network that relies on a shared firewall or proxy server for security. While ngrok only provides access to the local computer where it's run, an insider "bad actor" could launch attacks from such a machine. For that reason, some IT departments block ngrok.
+The tunneling part, however, lacks the guard rails expected by many IT professionals, especially if they're managing a traditional corporate network that relies on a shared firewall or proxy server for security. While ngrok only provides access to the local computer where it's run, an insider "bad actor" could launch attacks from such a machine. For that reason, some IT departments block all access to ngrok.
 
-> Many colleagues have suggested other tunneling applications such as [Azure Relay](https://blog.botframework.com/2019/04/16/debugging-your-locally-hosted-v4-bot-using-azure-relays/) or [localtunnel](https://localtunnel.github.io/www/). While they may do the job, they still open a tunnel from the public Internet to your development computer, and thus the same security concerns usually arise. This article will only consider approaches that don't expose any local ports on the Internet.
+> Many colleagues have suggested other tunneling applications such as [Azure Relay](https://blog.botframework.com/2019/04/16/debugging-your-locally-hosted-v4-bot-using-azure-relays/) or [localtunnel](https://localtunnel.github.io/www/). While they may do the job, they still open a tunnel from the public Internet to your development computer, and thus the same security concerns usually arise. This article will only consider approaches that don't involve tunneling from the Internet.
 
 ## Tunneling explained
 
-Most computers that are connected to the Internet aren't connected directly. Network traffic passes through some kind of firewall or NAT router to reach the actual Internet. That means the computer can make outgoing requests to servers on the Internet, but the firewall blocks incoming requests. This is largely a security measure, but it has other advantages as well.
+Most computers that are connected to the Internet aren't connected directly. Network traffic passes through some kind of firewall or NAT router to reach the actual Internet. The firewall allows outgoing requests to servers on the Internet but blocks all incoming requests. This is largely a security measure, but it has other advantages as well.
 
 ![Topology without ngrok](./ngrok-without-ngrok.png)
 
@@ -40,7 +40,7 @@ The problem is these incoming requests are normally blocked by the firewall. If 
 
 With ngrok running, the incoming requests go through the ngrok service and into your locally running copy of the ngrok application. This allows the developer to use their local tools just as before.
 
-![Topology without ngrok](./ngrok-without-ngrok.png)
+![Topology without ngrok](./ngrok-with-ngrok.png)
 
 In the case of Teams development, tabs and task modules only require local loopback connection, whereas bots and messaging extensions have to handle incoming requests from the Internet. The sections which follow examine each of these scenarios.
 
