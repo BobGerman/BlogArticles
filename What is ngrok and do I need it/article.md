@@ -60,6 +60,14 @@ You will then see a screen like this:
 
 The "Forwarding" lines show what's happening. Requests arriving at http://(something).ngrok.io or https://(something).ngrok.io will be forwarded to http://localhost:3978 where your bot code is running. At this point you would put the "something.ngrok.io" address into your Azure bot configuration, Teams app manifest etc. as the location, and leave the command running while you debug your application.
 
+### ngrok url
+
+The external ngrok url will always look like this:
+
+~~~text
+https://(something).ngrok.io
+~~~
+
 With the free ngrok service, the value of (something) is different every time you run ngrok, and you're limited to an 8-hour session. Every time you get a new hostname you need to update your configuration; depending on what you're doing and how many places you had to enter the hostname, this can be a chore. The paid plans allow you to reserve names that will persist, so you can just start ngrok and and you're ready to go.
 
 > Hint: If you're doing a tutorial using the free version of ngrok, make a note of every place you use the ngrok URL. That way you can easily remember where to update it when it changes.
@@ -70,7 +78,23 @@ The example above assumes that your local server is running http on the specifie
 ngrok http https://localhost:3978
 ~~~
 
+### Host header rewriting
+
+The HTTP(s) protocol includes a header called `Host`, which should contain the host (domain) name and port of the web server. This is used for routing requests to the right server, and for allowing a single web server to serve multiple web sites and services.
+
+If your debug server ignores the host header, you can ignore this section. But some servers will require the header to match the host name, such as `localhost:3978`. The challenge is that if the request was sent to `12345.ngrok.io`, the originator will probably put that in the host header when the server is expecting `localhost:3978`. To handle this, ngrok provides a command line argument that replaces the host headers with the local host name. Simply add the `-host-header` command switch to enable this.
+
+For example,
+
+~~~shell
+ngrok http -host-header=localhost:3978 3978
+~~~
+
+If you see the messages go through to your local web server but it doesn't respond, it may be expecting a specific host header.
+
 All the command options are detailed in the [ngrok documentation](https://ngrok.com/docs).
+
+### Network tracing
 
 You might notice that the ngrok screen shows a trace of requests that went through the tunnel; in this case they're HTTP POST requests from the Azure Bot Service, and the local server returned a 200 (OK) response. This is handy because you can see a 500 error from your server code by just glancing at the ngrok screen.
 
