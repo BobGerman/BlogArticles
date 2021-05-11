@@ -102,9 +102,15 @@ You might also notice the "Web interface" url on the ngrok screen. It provides a
 
 ![ngrok network trace](./ngrok-trace.png)
 
-## Developing Tabs and Task Modules with and without ngrok
+## Developing Tabs and Web-Page based Teams features
 
-Application tabs and task modules in Teams applications are backed by ordinary web pages that are displayed in an IFrame within the Microsoft Teams user interface. Applications using the Azure Active Directory Single Sign-On (SSO) option also need to implement a web service to do a token exchange. Accessing these via `localhost` is no problem; no tunnel is required.
+Some Teams application features are based on web pages provided by your application:
+
+ * Tabs and Tab Configuration Pages
+ * Task Modules (dialog boxes)
+ * Connector Configuration Pages
+
+These features are backed by ordinary web pages that are displayed in an IFrame within the Microsoft Teams user interface. Tabs using the Azure Active Directory Single Sign-On (SSO) option also need to implement a web service to do a token exchange. Accessing these via `localhost` is no problem; no tunnel is required.
 
 ![Picture showing that Teams client access via ngrok is really just a loopback](./ngrok-tab.png)
 
@@ -142,7 +148,14 @@ While this might not seem easy, it is possible! And it's a one-time setup that y
 
 ## Developing Bots and Messaging Extensions with and without ngrok
 
-Teams bots and messaging extensions are implemented as web services, not web pages. They are REST services and could be built with any tool chain, but the requests will come from the [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-manage-channels?WT.mc_id=m365-27674-rogerman). You need to have a port listening on the Internet to receive those requests.
+Several features of Teams applications are based on a web service within your application that is called from the cloud. These are:
+
+ * Bots (called by [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-manage-channels?WT.mc_id=m365-27674-rogerman))
+ * Messaging Extensions (called by [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-manage-channels?WT.mc_id=m365-27674-rogerman))
+ * [Microsoft Graph change notifications](https://docs.microsoft.com/en-us/graph/api/resources/webhooks?WT.mc_id=m365-27674-rogerman)
+ * [Outgoing webhooks](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-outgoing-webhook?WT.mc_id=m365-27674-rogerman)
+ 
+All of these are implemented as REST services and could be built with any tool chain, but the requests will come from the cloud, so you need to have a port listening on the Internet to receive those requests.
 
 ![Bot channel service calls local web service](./ngrok-bot.png)
 
@@ -153,7 +166,7 @@ If ngrok isn't on your road map, don't worry, there are still options available!
 
 ### Option 1. Use the Bot Framework Emulator
 
-The [Bot Framework Emulator](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-emulator?WT.mc_id=m365-27674-rogerman) allows you to run bots locally without using the Azure Bot Service. So instead of running your bot in Teams, you run it in the emulator. The drawback is that the emulator doesn't currently understand some Teams-specific features such as messaging extensions or [other Invoke activities](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/bot-basics?WT.mc_id=m365-27674-rogerman#teams-specific-activity-handlers). However it does a great job running conversational bots! Adaptive cards work as well, though Invoke card actions do not.
+If you're building a bot, consider using the  [Bot Framework Emulator](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-emulator?WT.mc_id=m365-27674-rogerman), which allows you to run bots locally without using the Azure Bot Service. Instead of running your bot in Teams, you run it in the emulator. The drawback is that the emulator doesn't currently understand some Teams-specific features such as messaging extensions or [other Invoke activities](https://docs.microsoft.com/en-us/microsoftteams/platform/bots/bot-basics?WT.mc_id=m365-27674-rogerman#teams-specific-activity-handlers). However it does a great job running conversational bots! Adaptive cards work as well, though Invoke card actions do not.
 
 If your bot isn't too Teams-specific, consider using the Bot Framework Emulator for most debugging and just do final integration testing in Teams, perhaps when the bot deployed in a staging environment which is set up for handling incoming requests.
 
