@@ -90,7 +90,7 @@ async function getUserProfile2() {
 
 ## Bonus content: Curt's Caching Corollaries
 
-All this reminds me of some really helpful caching advice I got from my friend [Curt Devlin](https://www.linkedin.com/in/curt-devlin-20aa81/) ages ago. This is my take on his advice, with a title I made up because I admire alliteration:
+All this reminds me of some really helpful caching advice I got from my friend [Curt Devlin](https://www.linkedin.com/in/curt-devlin-20aa81/) ages ago. This is my take on his advice, with a title I made up because I admire alliteration.
 
 1. Only cache data that changes less frequently than you'll consume it. This might sound obvious but I've seen people cache things that are only used once! Overcome your urge to cache everything and only use caching when you know there's an efficiency to be gained. Along with that, it helps if the data changes predictably so you can invalidate the cache, or if consumers can deal with slightly stale data.
 
